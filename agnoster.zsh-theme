@@ -113,7 +113,7 @@ prompt_dir() {
   local wd="%~"
 
   if test $(realpath --relative-to=$TMPDIR . | cut -c1) != "."; then
-    wd="\e[3mtempdir\e[0m"
+    wd="\e[3mtempdir\e[23m"
   fi
 
   prompt_segment blue $PRIMARY_FG " $wd "
