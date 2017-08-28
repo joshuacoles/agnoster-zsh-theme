@@ -112,7 +112,7 @@ prompt_git() {
 prompt_dir() {
   local wd="%~"
 
-  if test $(realpath --relative-to=$TMPDIR . | cut -c1) = "."; then
+  if test $(realpath --relative-to=$TMPDIR . | cut -c1) != "."; then
     wd="\e[3mtempdir\e[0m"
   fi
 
