@@ -110,7 +110,13 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue $PRIMARY_FG ' %~ '
+  local wd="%~"
+
+  if test $(realpath --relative-to=$TMPDIR . | cut -c1) = "."; then
+    wd="\e[3mtempdir\e[0m"
+  fi
+
+  prompt_segment blue $PRIMARY_FG " $wd "
 }
 
 # Status:
